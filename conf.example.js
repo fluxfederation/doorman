@@ -1,6 +1,7 @@
 module.exports = {
   // port to listen on
   port: 8085,
+  // hostname: 'http://myhostname.example.com', // optional url for OAuth callbacks, default autodetect
 
   proxyTo: {
     host: 'localhost',
