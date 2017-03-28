@@ -66,7 +66,7 @@ function checkUser(req, res, next) {
   // /_doorman requests never get proxied
   if(req.url.indexOf('/_doorman') == 0) { return next(); }
 
-  if(userCanAccess(req) || isPublicPath(req)) {
+  if(isPublicPath(req) || userCanAccess(req)) {
     proxyMiddleware(req, res, next);
   } else {
     if(req.session && req.session.auth) {
