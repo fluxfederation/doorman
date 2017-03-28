@@ -106,7 +106,9 @@ var sessionOptions = conf.sessionCookie || {
 var doormanSession = session(sessionOptions);
 
 var logMiddleware = function(req, res, next) {
-  log.info([req.method, req.headers.host, req.url].join(' '));
+  if (!isPublicPath(req)) {
+    log.info([req.method, req.headers.host, req.url].join(' '));
+  }
   next();
 };
 
